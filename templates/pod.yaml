@@ -351,6 +351,12 @@ spec:
       {{- end }}
       resources:
 {{ toYaml .Values.resources | indent 12 }}
+  
+  - name: dbconfigui-service
+    imagePullPolicy: IfNotPresent
+    image: dbconfig-ui:latest     
+    ports:
+    - containerPort: 7777
       
     
   
