@@ -3,15 +3,14 @@ kind: Pod
 metadata:
   name: pod-with-sidecar
 spec:
+{{ if .Values.appSandbox.enabled }}
   volumes:
   - name: database-volume 
   - name: myvolume 
-  {{- if .Values.persistence.enabled }}
-    persistentVolumeClaim:
-       claimName:  {{ .Values.persistence.existingClaim | default (include "sim-edge-mosquitto-broker.fullname" .) }}
-    {{- else }}
-       emptyDir: {}
-    {{- end -}}   
+    hostPath:
+       path: "/home/deeraj/mqtt-auth/db"
+       type: DirectoryOrCreate
+{{ end }}
     {{- if .Values.customResources.enablespecificdownload }}
     {{- with .Values.nodeSelector }}
        nodeSelector:
@@ -345,11 +344,10 @@ spec:
     - containerPort: 1884
       name: iowa
       protocol: TCP
+    {{ if .Values.appSandbox.enabled }}
     volumeMounts:
     - name: myvolume 
       mountPath: /home/mosquitto/data
-      {{- if .Values.persistence.subPath }}
-      subPath: {{ .Values.persistence.subPath }}
       {{- end }}
       resources:
 {{ toYaml .Values.resources | indent 12 }}
