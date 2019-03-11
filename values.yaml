@@ -25,6 +25,10 @@ persistence:
 #  storageClass: standard
   annotations: {}
   
+appSandbox:
+  enabled: "true"
+
+  
 resources:
   requests:
     cpu: 50m
