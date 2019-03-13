@@ -357,7 +357,7 @@ spec:
     image: dbconfig-ui:latest     
     ports:
     - containerPort: 7777
-    network_mode:host
+    network_mode: host
       
     
   
