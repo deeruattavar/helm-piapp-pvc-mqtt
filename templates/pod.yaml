@@ -35,7 +35,6 @@ spec:
   - name: database-service
     imagePullPolicy: IfNotPresent
     image: postgres # alpine is a simple Linux OS image
-    hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
       value: "postgres"
