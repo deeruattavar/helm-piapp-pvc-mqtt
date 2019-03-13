@@ -35,7 +35,7 @@ spec:
   - name: database-service
     imagePullPolicy: IfNotPresent
     image: postgres # alpine is a simple Linux OS image
-    network_mode: host
+    hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
       value: "postgres"
@@ -266,7 +266,8 @@ spec:
   - name: dbinit-service
     imagePullPolicy: IfNotPresent
     image: dbinitapi-image:latest  
-    network_mode: host
+    hostNetwork: true 
+
     ports:
     - containerPort: 1337
     env:
@@ -358,7 +359,8 @@ spec:
     image: dbconfig-ui:latest     
     ports:
     - containerPort: 7777
-    network_mode: host
+    hostNetwork: true 
+
       
     
   
