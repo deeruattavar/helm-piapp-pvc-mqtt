@@ -2,23 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "sim-edge-app-device-scanner.fullname" . }}
-  labels:
-    app: {{ include "sim-edge-app-device-scanner.name" . }}
-    chart: {{ include "sim-edge-app-device-scanner.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+  name: pod-with-sidecar
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: inv-hopr
-      {{- if .Values.service.nodePort }}
-      nodePort: {{ .Values.service.nodePort }}
-      {{- end }}
-      protocol: TCP
-      name: https
+  type: "ClusterIP"
   selector:
-    app: {{ include "sim-edge-app-device-scanner.name" . }}
-    release: {{ .Release.Name }}
-{{- end }}
+    app: pod-with-sidecar
+   
