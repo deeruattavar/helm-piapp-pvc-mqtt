@@ -5,6 +5,14 @@ metadata:
   name: pod-with-sidecar
 spec:
   type: "ClusterIP"
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: inv-hopr
+      {{- if .Values.service.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{- end }}
+      protocol: TCP
+      name: https 
   selector:
     app: pod-with-sidecar
    {{- end }}
