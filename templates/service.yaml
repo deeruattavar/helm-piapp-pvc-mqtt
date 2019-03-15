@@ -1,18 +1,16 @@
-{{- if .Values.service.enabled -}}
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: pod-with-sidecar
+  name: pi-app-service
 spec:
-  type: "ClusterIP"
+  type: "NodePort"
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: inv-hopr
-      {{- if .Values.service.nodePort }}
-      nodePort: {{ .Values.service.nodePort }}
-      {{- end }}
+    - port: 4201
+      targetPort: 4201
+      nodePort: 30008
       protocol: TCP
       name: https 
   selector:
-    app: pod-with-sidecar
-   {{- end }}
+    app: pi-app
+    type: ui-backend
