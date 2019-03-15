@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-with-sidecar
+  labels:
+     app: pi-app
+     type: ui-backend
 spec:
 {{ if .Values.appSandbox.enabled }}
   volumes:
