@@ -51,6 +51,34 @@ spec:
     ports:
     - containerPort: 5432
     
+   - name: tokenizer-service
+    imagePullPolicy: IfNotPresent
+    image: tokenizer_image:latest     
+    ports:
+    - containerPort: 4504
+    env:
+    - name: "http_proxy"
+      value: 'http://194.138.0.25:9400'
+    - name: "https_proxy"
+      value: 'http://194.138.0.25:9400'
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"  
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+        
+    
   # Sidecar container
   - name: kpi-service
     imagePullPolicy: IfNotPresent
@@ -404,33 +432,7 @@ spec:
       resources:
 {{ toYaml .Values.resources | indent 12 }}
   
-  - name: tokenizer-service
-    imagePullPolicy: IfNotPresent
-    image: tokenizer_image:latest     
-    ports:
-    - containerPort: 4504
-    env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "no_proxy"
-      value: "localhost;127.0.0.1"
-    - name: "DBSERVICETYPE"
-      value: "postgres"
-    - name: "DBSERVICE"
-      value: "WinCCCloudDatabaseEx"  
-    - name: "DBSERVICE2TYPE"
-      value: "postgres"
-    - name: "DBSERVICE2"
-      value: "EdgeDb"  
-    - name: "EXTENDED_ERRORS"
-      value: "true"
-    - name: "LOG_DEBUG_INFO"
-      value: "true"
-    - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
-      
+  
   
   - name: dbconfigui-service
     imagePullPolicy: IfNotPresent
