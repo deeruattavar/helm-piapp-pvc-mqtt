@@ -51,7 +51,7 @@ spec:
     ports:
     - containerPort: 5432
     
-   - name: tokenizer-service
+  - name: tokenizer-service
     imagePullPolicy: IfNotPresent
     image: tokenizer_image:latest     
     ports:
@@ -76,7 +76,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}' 
         
     
   # Sidecar container
