@@ -76,7 +76,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}' 
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}' 
         
     
   # Sidecar container
@@ -105,7 +105,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value:  '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value:  '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: asset-service
     imagePullPolicy: IfNotPresent
@@ -132,7 +132,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value:  '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value:  '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
       
   - name: data-service
     imagePullPolicy: IfNotPresent
@@ -160,7 +160,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
   - name: dashboard-service
     imagePullPolicy: IfNotPresent
     image: dashboard-image:latest  
@@ -187,7 +187,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: usermanager-service
     imagePullPolicy: IfNotPresent
@@ -215,7 +215,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
   
   - name: billing-service
     imagePullPolicy: IfNotPresent
@@ -243,7 +243,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: time-service
     imagePullPolicy: IfNotPresent
@@ -271,7 +271,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
       
   - name: test-service
     imagePullPolicy: IfNotPresent
@@ -299,7 +299,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: frontend-service
     imagePullPolicy: IfNotPresent
@@ -327,7 +327,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: dbinit-service
     imagePullPolicy: IfNotPresent
@@ -356,7 +356,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: publisher-service
     imagePullPolicy: IfNotPresent
@@ -384,7 +384,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
   - name: subscriber-service
     imagePullPolicy: IfNotPresent
@@ -412,7 +412,7 @@ spec:
     - name: "LOG_DEBUG_INFO"
       value: "true"
     - name: {{ .Values.env.name }}
-      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"postgres"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
   
   - name: mqtt-service
     imagePullPolicy: IfNotPresent
