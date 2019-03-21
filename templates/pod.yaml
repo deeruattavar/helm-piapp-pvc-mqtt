@@ -57,10 +57,7 @@ spec:
     ports:
     - containerPort: 4504
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+    
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -86,10 +83,6 @@ spec:
     ports:
     - containerPort: 4502
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -113,10 +106,7 @@ spec:
     ports:
     - containerPort: 4504
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+    
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -141,10 +131,7 @@ spec:
     ports:
     - containerPort: 4505
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+   
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -168,10 +155,7 @@ spec:
     ports:
     - containerPort: 4506
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+   
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -196,10 +180,7 @@ spec:
     ports:
     - containerPort: 4507
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+   
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -224,10 +205,7 @@ spec:
     ports:
     - containerPort: 4508
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+    
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -252,10 +230,7 @@ spec:
     ports:
     - containerPort: 4509
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+    
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -280,10 +255,7 @@ spec:
     ports:
     - containerPort: 45011
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+   
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -308,10 +280,7 @@ spec:
     ports:
     - containerPort: 4201
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+   
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -337,10 +306,7 @@ spec:
     ports:
     - containerPort: 1337
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+  
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -365,10 +331,7 @@ spec:
     ports:
     - containerPort: 3500
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+    
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
@@ -393,10 +356,7 @@ spec:
     ports:
     - containerPort: 3000
     env:
-    - name: "http_proxy"
-      value: 'http://194.138.0.25:9400'
-    - name: "https_proxy"
-      value: 'http://194.138.0.25:9400'
+    
     - name: "no_proxy"
       value: "localhost;127.0.0.1"
     - name: "DBSERVICETYPE"
