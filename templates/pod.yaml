@@ -4,7 +4,7 @@ metadata:
   name: pi-app-pod
   labels:
      app: pi-app
-     type: ui-backend
+     type: dbconfig-ui 
      backend: dbinit-service
 spec:
 {{ if .Values.appSandbox.enabled }}
