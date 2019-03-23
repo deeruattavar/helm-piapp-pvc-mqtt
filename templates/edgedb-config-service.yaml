@@ -11,5 +11,5 @@ spec:
        targetPort: 1337
    selector:
      app: pi-app
-     type: ui-backend
+     type: dbconfig-ui 
      backend: dbinit-service
