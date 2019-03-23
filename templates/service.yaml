@@ -1,16 +1,24 @@
-
+{{- if .Values.service.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: pi-app-service
+  name: {{ include "sim-edge-app-device-scanner.fullname" . }}
+  labels:
+    app: {{ include "sim-edge-app-device-scanner.name" . }}
+    chart: {{ include "sim-edge-app-device-scanner.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
-  type: "NodePort"
+  type: {{ .Values.service.type }}
   ports:
-    - port: 4201
-      targetPort: 4201
-      nodePort: 30020
+    - port: {{ .Values.service.port }}
+      targetPort: inv-hopr
+      {{- if .Values.service.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{- end }}
       protocol: TCP
-      name: https 
+      name: https
   selector:
-    app: pi-app
-    type: ui-backend
+    app: {{ include "sim-edge-app-device-scanner.name" . }}
+    release: {{ .Release.Name }}
+{{- end }}
