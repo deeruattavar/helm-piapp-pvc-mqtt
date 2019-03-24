@@ -6,10 +6,9 @@ metadata:
      app: edgedb-config-service
 spec:
    ports:
-     - port: 1337
+     - port: 80
        protocol: TCP
        targetPort: 1337
    selector:
      app: pi-app
-     type: dbconfig-ui 
      backend: dbinit-service
