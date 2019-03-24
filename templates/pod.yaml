@@ -4,8 +4,19 @@ metadata:
   name: pi-app-pod
   labels:
      app: pi-app
-     type: dbconfig-ui 
      backend: dbinit-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pi-app
+      backend: dbinit-service 
+  template:
+    metadata:
+      labels:
+        app: pi-app
+        backend: dbinit-service    
+     
 spec:
 {{ if .Values.appSandbox.enabled }}
   volumes:
