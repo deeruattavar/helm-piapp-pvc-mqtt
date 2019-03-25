@@ -313,7 +313,6 @@ spec:
   - name: dbinit-service
     imagePullPolicy: IfNotPresent
     image: dbinitapi-image:latest  
-    hostNetwork: true 
 
     ports:
     - containerPort: 1337
@@ -411,7 +410,7 @@ spec:
     image: dbconfig-ui:latest     
     ports:
     - containerPort: 7777
-    hostNetwork: true 
+   
 
       
     
