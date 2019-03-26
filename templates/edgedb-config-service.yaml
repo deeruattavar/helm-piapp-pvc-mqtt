@@ -9,6 +9,7 @@ spec:
      - port: 1337
        protocol: TCP
        targetPort: 1337
+       protocol: "TCP"
    selector:
      app: pi-app
      backend: dbinit-service
