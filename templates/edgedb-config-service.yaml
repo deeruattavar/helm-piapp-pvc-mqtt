@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-   name: edgedb_config_service
+   name: edgedbconfigservice
    labels:
      app: edgedb_config_service
 spec:
