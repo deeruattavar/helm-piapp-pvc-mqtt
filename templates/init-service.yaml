@@ -6,7 +6,7 @@ metadata:
      app: pi-app-db-init-service
 spec:
    ports:
-     - port:80
+     - port: 80
        protocol: TCP
        targetPort: 4201
        protocol: "TCP"
