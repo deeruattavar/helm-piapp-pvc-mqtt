@@ -1,0 +1,24 @@
+{{- if .Values.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sim-edge-app-device-scanner.fullname" . }}
+  labels:
+    app: {{ include "sim-edge-app-device-scanner.name" . }}
+    chart: {{ include "sim-edge-app-device-scanner.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: inv-hopr
+      {{- if .Values.service.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{- end }}
+      protocol: TCP
+      name: https
+  selector:
+    app: {{ include "sim-edge-app-device-scanner.name" . }}
+    release: {{ .Release.Name }}
+{{- end }}
