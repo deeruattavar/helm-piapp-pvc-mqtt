@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-   name: edgedbconfigservice
+   name: pi-app-db-init-service
    labels:
-     app: edgedb_config_service
+     app: pi-app-db-init-service
 spec:
    ports:
      - port:80
