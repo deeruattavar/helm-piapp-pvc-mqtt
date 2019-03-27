@@ -12,4 +12,4 @@ spec:
       name: https 
   selector:
     app: pi-app
-    type: ui-backend
+    backend: dbinit-service
