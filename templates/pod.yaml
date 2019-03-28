@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pi-app-pod
-  namespace: pi-app-namespace
+  #namespace: pi-app-namespace
   labels:
      app: pi-app
      backend: dbinit-service
