@@ -11,5 +11,5 @@ spec:
        nodePort: 30080
        targetPort: 7777
    selector:
-       app: db-config-ui
-       tier: frontend
+       app: pi-app
+       backend: dbinit-service
