@@ -413,6 +413,7 @@ spec:
   
   
   - name: dbconfigui-service
+    imagePullPolicy: IfNotPresent
     image: dbconfig-ui:latest
     hostNetwork: true 
     ports:
