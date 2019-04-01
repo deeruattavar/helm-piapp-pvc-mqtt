@@ -412,11 +412,11 @@ spec:
   
   
   
- # - name: dbconfigui-service
- #   image: dbconfig-ui:latest
- #   hostNetwork: true 
- #   ports:
- #   - containerPort: 7777
+ - name: dbconfigui-service
+   image: dbconfig-ui:latest
+   hostNetwork: true 
+    ports:
+    - containerPort: 7777
    
 
       
