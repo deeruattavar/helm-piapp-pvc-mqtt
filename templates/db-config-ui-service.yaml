@@ -8,7 +8,7 @@ spec:
    type: NodePort
    ports:
      - port: 7777
-       #nodePort: 7777
+       nodePort: 30080
        targetPort: 7777
    selector:
        app: pi-app
