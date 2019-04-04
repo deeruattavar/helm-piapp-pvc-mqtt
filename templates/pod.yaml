@@ -54,7 +54,7 @@ spec:
   - name: database-service
     imagePullPolicy: IfNotPresent
     image: postgres # alpine is a simple Linux OS image
-    hostNetwork: true 
+    #hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
       value: "postgres"
@@ -73,7 +73,7 @@ spec:
   - name: tokenizer-service
     imagePullPolicy: IfNotPresent
     image: tokenizer_image:latest
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4504
     env:
@@ -100,7 +100,7 @@ spec:
   - name: kpi-service
     imagePullPolicy: IfNotPresent
     image: kpi-image:latest 
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4502
     env:
@@ -124,7 +124,7 @@ spec:
   - name: asset-service
     imagePullPolicy: IfNotPresent
     image: asset-image:latest
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4504
     env:
@@ -149,7 +149,7 @@ spec:
   - name: data-service
     imagePullPolicy: IfNotPresent
     image: data-image:latest
-    hostNetwork: true 
+    #hostNetwork: true 
     
     ports:
     - containerPort: 4505
@@ -174,7 +174,7 @@ spec:
   - name: dashboard-service
     imagePullPolicy: IfNotPresent
     image: dashboard-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4506
     env:
@@ -199,7 +199,7 @@ spec:
   - name: usermanager-service
     imagePullPolicy: IfNotPresent
     image: usermanager-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4507
     env:
@@ -224,7 +224,7 @@ spec:
   - name: billing-service
     imagePullPolicy: IfNotPresent
     image: billing-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4508
     env:
@@ -249,7 +249,7 @@ spec:
   - name: time-service
     imagePullPolicy: IfNotPresent
     image: time-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4509
     env:
@@ -274,7 +274,7 @@ spec:
   - name: test-service
     imagePullPolicy: IfNotPresent
     image: test-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 45011
     env:
@@ -299,7 +299,7 @@ spec:
   - name: frontend-service
     imagePullPolicy: IfNotPresent
     image: frontend-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 4201
       hostPort: 4201
@@ -325,7 +325,7 @@ spec:
   - name: dbinit-service
     imagePullPolicy: IfNotPresent
     image: dbinitapi-image:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 1337
       hostPort: 1337
@@ -351,7 +351,7 @@ spec:
   - name: publisher-service
     imagePullPolicy: IfNotPresent
     image: demo_publisher:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 3500
     env:
@@ -376,7 +376,7 @@ spec:
   - name: subscriber-service
     imagePullPolicy: IfNotPresent
     image: demo_subscriber:latest  
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 3000
     env:
@@ -401,7 +401,7 @@ spec:
   - name: mqtt-service
     imagePullPolicy: IfNotPresent
     image: siemens/sim-edge-app-mosquitto-broker:0.1.4.6.65 
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 1883
       name: https
