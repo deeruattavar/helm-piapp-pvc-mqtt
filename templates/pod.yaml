@@ -21,7 +21,7 @@ spec:
 spec:
 
   volumes:
-  - name: database-volume_2
+  - name: database-volume
 {{ if .Values.appSandbox.enabled }}      
   - name: myvolume 
     hostPath:
@@ -61,7 +61,7 @@ spec:
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123"    
     volumeMounts:
-    - name: database-volume_2
+    - name: database-volume
       mountPath: /var/lib/postgresql 
     ports:
     - containerPort: 5432
