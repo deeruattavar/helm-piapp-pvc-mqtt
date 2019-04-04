@@ -19,9 +19,9 @@ spec:
         backend: dbinit-service    
      
 spec:
-{{ if .Values.appSandbox.enabled }}
   volumes:
   - name: database-volume 
+{{ if .Values.appSandbox.enabled }}  
   - name: myvolume 
     hostPath:
        path: "/home/deeraj/mqtt-auth/db"
