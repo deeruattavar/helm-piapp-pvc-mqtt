@@ -7,7 +7,7 @@ spec:
   ports:
     - port: 4201
       targetPort: 4201
-      #nodePort: 4201
+      nodePort: 30008
       protocol: TCP
       name: https 
   selector:
