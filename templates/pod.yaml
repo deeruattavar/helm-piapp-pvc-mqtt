@@ -328,7 +328,7 @@ spec:
     #hostNetwork: true 
     ports:
     - containerPort: 1337
-      hostPort: 1337
+      #hostPort: 1337
     env:
   
     - name: "no_proxy"
