@@ -297,7 +297,7 @@ spec:
     hostNetwork: true 
     ports:
     - containerPort: 4201
-      hostPort:4201
+      hostPort: 4201
     env:
    
     - name: "no_proxy"
@@ -323,7 +323,7 @@ spec:
     hostNetwork: true 
     ports:
     - containerPort: 1337
-      hostPort:1337
+      hostPort: 1337
     env:
   
     - name: "no_proxy"
@@ -417,10 +417,10 @@ spec:
   - name: dbconfigui-service
     imagePullPolicy: IfNotPresent
     image: dbconfig-ui:latest
-    hostNetwork: true 
+    #hostNetwork: true 
     ports:
     - containerPort: 7777
-      hostPort:7777
+      hostPort: 7777
    
 
       
