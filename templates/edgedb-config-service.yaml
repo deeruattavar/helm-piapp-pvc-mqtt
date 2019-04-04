@@ -11,7 +11,7 @@ spec:
        targetPort: 1337
        protocol: "TCP"
        http: True
-   clusterIP: 10.43.1.0   
+   #clusterIP: 10.43.1.0   
    selector:
      app: pi-app
      backend: dbinit-service
