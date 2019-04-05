@@ -19,12 +19,10 @@ spec:
         backend: dbinit-service    
      
 spec:
-{{ if .Values.appSandbox.enabled }} 
   volumes:
   - name: database-volume  
-    hostPath:
-       path: "/home/deeraj/mqtt-auth/postgres"
-       type: DirectoryOrCreate
+    emptyDir: {}
+ {{ if .Values.appSandbox.enabled }}  
   - name: myvolume 
     hostPath:
        path: "/home/deeraj/mqtt-auth/db"
@@ -62,11 +60,11 @@ spec:
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123"  
-  {{ if .Values.appSandbox.enabled }}      
+  #{{ if .Values.appSandbox.enabled }}      
     volumeMounts:
     - name: database-volume
       mountPath: /var/lib/postgresql/
-   {{- end }}   
+   #{{- end }}   
     ports:
     - containerPort: 5432
     
