@@ -23,7 +23,7 @@ spec:
   volumes:
   - name: database-volume  
     hostPath:
-       path: "/home/deeraj/mqtt-auth/compose_username_and_pasword"
+       path: "/home/deeraj/mqtt-auth/postgres"
        type: DirectoryOrCreate
   - name: myvolume 
     hostPath:
