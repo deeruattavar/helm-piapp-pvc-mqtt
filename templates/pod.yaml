@@ -19,10 +19,12 @@ spec:
         backend: dbinit-service    
      
 spec:
+ {{ if .Values.appSandbox.enabled }}  
   volumes:
   - name: database-volume  
-    emptyDir: {}
- {{ if .Values.appSandbox.enabled }}  
+    hostPath:
+       path: "/home/deeraj/mqtt-auth/postgres"
+       type: DirectoryOrCreate
   - name: myvolume 
     hostPath:
        path: "/home/deeraj/mqtt-auth/db"
@@ -51,7 +53,7 @@ spec:
   # Main application container
   - name: database-service
     imagePullPolicy: IfNotPresent
-    image: postgres # alpine is a simple Linux OS image
+    image: centos/postgresql-96-centos7:latest # alpine is a simple Linux OS image
     #hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
@@ -60,11 +62,11 @@ spec:
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123"  
-  #{{ if .Values.appSandbox.enabled }}      
+  {{ if .Values.appSandbox.enabled }}      
     volumeMounts:
     - name: database-volume
       mountPath: /var/lib/postgresql/
-   #{{- end }}   
+   {{- end }}   
     ports:
     - containerPort: 5432
     
