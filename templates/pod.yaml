@@ -53,7 +53,7 @@ spec:
   # Main application container
   - name: database-service
     imagePullPolicy: IfNotPresent
-    image: centos/postgresql-96-centos7:latest # alpine is a simple Linux OS image
+    image: circleci/postgres:latest # alpine is a simple Linux OS image
     #hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
