@@ -23,7 +23,7 @@ spec:
   volumes:
   - name: database-volume  
     hostPath:
-       path: "/home/deeraj/mqtt-auth/postgres"
+       path: "/home/deeraj/mqtt-auth/postgres1"
        type: DirectoryOrCreate
   - name: myvolume 
     hostPath:
@@ -53,7 +53,7 @@ spec:
   # Main application container
   - name: database-service
     imagePullPolicy: IfNotPresent
-    image: circleci/postgres:latest # alpine is a simple Linux OS image
+    image: postgres:latest # alpine is a simple Linux OS image
     #hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
