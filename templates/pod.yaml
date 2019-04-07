@@ -65,7 +65,7 @@ spec:
   {{ if .Values.appSandbox.enabled }}      
     volumeMounts:
     - name: database-volume
-      mountPath: /var/lib/postgresql/
+      mountPath: /var/lib/postgresql/data
    {{- end }}   
     ports:
     - containerPort: 5432
