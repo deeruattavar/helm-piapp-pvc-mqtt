@@ -398,24 +398,7 @@ spec:
     - name: {{ .Values.env.name }}
       value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
   
-  - name: mqtt-service
-    imagePullPolicy: IfNotPresent
-    image: : "{{ .Values.image_mqtt.repository }}:{{ .Values.image_mqtt.tag }}" 
-    #hostNetwork: true 
-    ports:
-    - containerPort: 1883
-      name: https
-      protocol: TCP
-    - containerPort: 1884
-      name: iowa
-      protocol: TCP
-    {{ if .Values.appSandbox.enabled }}
-    volumeMounts:
-    - name: myvolume 
-      mountPath: /home/mosquitto/data
-      {{- end }}
-      resources:
-{{ toYaml .Values.resources | indent 12 }}
+  
   
   
   
