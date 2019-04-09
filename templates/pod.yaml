@@ -27,7 +27,7 @@ spec:
        type: DirectoryOrCreate
   - name: myvolume 
     hostPath:
-       path: "/home/edge/mqtt-auth/db"
+       path: "/home/deeraj/mqtt-auth/db"
        type: DirectoryOrCreate
 {{ end }}
     {{- if .Values.customResources.enablespecificdownload }}
