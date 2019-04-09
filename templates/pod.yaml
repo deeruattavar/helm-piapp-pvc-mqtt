@@ -419,7 +419,111 @@ spec:
       resources:
 {{ toYaml .Values.resources | indent 12 }}
   
+  - name: frontendnotifier-service
+    imagePullPolicy: IfNotPresent
+    image: "{{ .Values.imagefrontendnotifier.repository }}:{{ .Values.imagefrontendnotifier.tag }}"  
+    #hostNetwork: true 
+    ports:
+    - containerPort: 4200
+      hostPort: 4200
+    env:
+   
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"    
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
   
+  - name: notificationservice-service
+    imagePullPolicy: IfNotPresent
+    image: "{{ .Values.imagenotificationservice.repository }}:{{ .Values.imagenotificationservice.tag }}"  
+    #hostNetwork: true 
+    ports:
+    - containerPort: 4510
+      hostPort: 4510
+    env:
+   
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"    
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+   
+  - name: variablenotificationprovider-service
+    imagePullPolicy: IfNotPresent
+    image: "{{ .Values.imagevariablenotificationprovider.repository }}:{{ .Values.imagevariablenotificationprovider.tag }}"  
+    #hostNetwork: true 
+    ports:
+    - containerPort: 4512
+      hostPort: 4512
+    env:
+   
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"    
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+ 
+  
+  - name: archivenotificationservice-service
+    imagePullPolicy: IfNotPresent
+    image: "{{ .Values.imagearchivenotificationservice.repository }}:{{ .Values.imagearchivenotificationservice.tag }}"  
+    #hostNetwork: true 
+    ports:
+    - containerPort: 4514
+      hostPort: 4514
+    env:
+   
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"    
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+ 
   
   - name: dbconfigui-service
     imagePullPolicy: IfNotPresent
