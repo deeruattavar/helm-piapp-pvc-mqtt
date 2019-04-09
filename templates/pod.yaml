@@ -70,4 +70,54 @@ spec:
     ports:
     - containerPort: 5432
     
-  
+  - name: tokenizer-service
+    imagePullPolicy: IfNotPresent
+    image: "{{ .Values.imagetokenizerimage.repository }}:{{ .Values.imagetokenizerimage.tag }}"
+    #hostNetwork: true 
+    ports:
+    - containerPort: 4504
+    env:
+    
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"  
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}' 
+        
+    
+  # Sidecar container
+  - name: kpi-service
+    imagePullPolicy: IfNotPresent
+    image: "{{ .Values.imagekpiimage.repository }}:{{ .Values.imagekpiimage.tag }}" 
+    #hostNetwork: true 
+    ports:
+    - containerPort: 4502
+    env:
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"    
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value:  '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+
