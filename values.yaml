@@ -81,7 +81,26 @@ imagedbconfigui:
     repository: dbconfig-ui
     tag: latest
     pullPolicy: IfNotPresent
+    
+imagefrontendnotifier:
+    repository: frontendnotifier-image
+    tag: latest
+    pullPolicy: IfNotPresent
+    
+imagefrontendnotifier:
+    repository: frontendnotifier-image
+    tag: latest
+    pullPolicy: IfNotPresent
+    
+imagefrontendnotifier:
+    repository: frontendnotifier-image
+    tag: latest
+    pullPolicy: IfNotPresent
 
+imagefrontendnotifier:
+    repository: frontendnotifier-image
+    tag: latest
+    pullPolicy: IfNotPresent 
   
   
   
