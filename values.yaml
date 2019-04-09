@@ -2,82 +2,82 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-image_postgres:
+imagepostgres:
     repository: postgres
     tag: latest
     pullPolicy: IfNotPresent
 
-image_tokenizer_image:
+imagetokenizerimage:
     repository: tokenizer_image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_kpi_image:
+imagekpiimage:
     repository: postgres
     tag: latest
     pullPolicy: IfNotPresent
   
-image_asset_image:
+imageassetimage:
     repository: asset-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_data_image:
+imagedataimage:
     repository: data-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_dashboard_image:
+imagedashboardimage:
     repository: dashboard-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_usermanager_image:
+imageusermanagerimage:
     repository: usermanager-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_billing_image:
+imagebillingimage:
     repository: billing-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_time_image:
+imagetimeimage:
     repository: time-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_test_image:
+imagetestimage:
     repository: test-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_frontend_image:
+imagefrontendimage:
     repository: frontend-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_dbinitapi_image:
+imagedbinitapiimage:
     repository: dbinitapi-image
     tag: latest
     pullPolicy: IfNotPresent
   
-image_demo_publisher:
+imagedemopublisher:
     repository: demo_publisher
     tag: latest
     pullPolicy: IfNotPresent
   
-image_demo_subscriber:
+imagedemosubscriber:
     repository: demo_subscriber
     tag: latest
     pullPolicy: IfNotPresent
   
-image_mqtt:
+imagemqtt:
     repository: siemens/sim-edge-app-mosquitto-broker
     tag: 0.1.4.6.65 
     pullPolicy: IfNotPresent
 
-image_dbconfig_ui:
+imagedbconfigui:
     repository: dbconfig-ui
     tag: latest
     pullPolicy: IfNotPresent
