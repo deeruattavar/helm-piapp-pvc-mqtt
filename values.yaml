@@ -87,18 +87,18 @@ imagefrontendnotifier:
     tag: latest
     pullPolicy: IfNotPresent
     
-imagefrontendnotifier:
-    repository: frontendnotifier-image
+imagenotificationservice:
+    repository: notificationservice-image
     tag: latest
     pullPolicy: IfNotPresent
     
-imagefrontendnotifier:
-    repository: frontendnotifier-image
+imagevariablenotificationprovider:
+    repository: variablenotificationprovider-image
     tag: latest
     pullPolicy: IfNotPresent
 
-imagefrontendnotifier:
-    repository: frontendnotifier-image
+imagearchivenotificationservice:
+    repository: archivenotificationservice-image
     tag: latest
     pullPolicy: IfNotPresent 
   
