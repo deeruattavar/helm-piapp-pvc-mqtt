@@ -7,77 +7,77 @@ image_postgres:
     tag: latest
     pullPolicy: IfNotPresent
 
-  image_tokenizer_image:
+image_tokenizer_image:
     repository: tokenizer_image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_kpi_image:
+image_kpi_image:
     repository: postgres
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_asset_image:
+image_asset_image:
     repository: asset-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_data_image:
+image_data_image:
     repository: data-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_dashboard_image:
+image_dashboard_image:
     repository: dashboard-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_usermanager_image:
+image_usermanager_image:
     repository: usermanager-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_billing_image:
+image_billing_image:
     repository: billing-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_time_image:
+image_time_image:
     repository: time-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_test_image:
+image_test_image:
     repository: test-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_frontend_image:
+image_frontend_image:
     repository: frontend-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_dbinitapi_image:
+image_dbinitapi_image:
     repository: dbinitapi-image
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_demo_publisher:
+image_demo_publisher:
     repository: demo_publisher
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_demo_subscriber:
+image_demo_subscriber:
     repository: demo_subscriber
     tag: latest
     pullPolicy: IfNotPresent
   
-  image_mqtt:
+image_mqtt:
     repository: siemens/sim-edge-app-mosquitto-broker
     tag: 0.1.4.6.65 
     pullPolicy: IfNotPresent
 
-   image_dbconfig_ui:
+image_dbconfig_ui:
     repository: dbconfig-ui
     tag: latest
     pullPolicy: IfNotPresent
