@@ -13,7 +13,7 @@ imagetokenizerimage:
     pullPolicy: IfNotPresent
   
 imagekpiimage:
-    repository: postgres
+    repository: kpi-image
     tag: latest
     pullPolicy: IfNotPresent
   
