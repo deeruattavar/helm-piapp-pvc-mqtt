@@ -19,15 +19,15 @@ spec:
         backend: dbinit-service    
      
 spec:
- {{ if .Values.appSandbox.enabled }}  
+{{ if .Values.appSandbox.enabled }}
   volumes:
-  - name: database-volume  
+  - name: database-volume 
     hostPath:
-       path: "/home/deeraj/mqtt-auth/postgres1/data"
+       path: "/home/edge/mqtt-auth/postgres/data"
        type: DirectoryOrCreate
   - name: myvolume 
     hostPath:
-       path: "/home/deeraj/mqtt-auth/db"
+       path: "/home/edge/mqtt-auth/db"
        type: DirectoryOrCreate
 {{ end }}
     {{- if .Values.customResources.enablespecificdownload }}
@@ -53,27 +53,27 @@ spec:
   # Main application container
   - name: database-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagepostgres.repository }}:{{ .Values.imagepostgres.tag }}" # alpine is a simple Linux OS image
-    #hostNetwork: true 
+    image: postgres # alpine is a simple Linux OS image
+    hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
       value: "postgres"
     - name: "POSTGRES_USER"
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
-      value: "Siemens123"  
-  {{ if .Values.appSandbox.enabled }}      
+      value: "Siemens123"
+{{ if .Values.appSandbox.enabled }}       
     volumeMounts:
     - name: database-volume
-      mountPath: /var/lib/postgresql/data/
-   {{- end }}   
+      mountPath: /var/lib/postgresql/data
+ {{- end }}        
     ports:
     - containerPort: 5432
     
   - name: tokenizer-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagetokenizerimage.repository }}:{{ .Values.imagetokenizerimage.tag }}"
-    #hostNetwork: true 
+    image: tokenizer_image:latest
+    hostNetwork: true 
     ports:
     - containerPort: 4504
     env:
@@ -99,8 +99,8 @@ spec:
   # Sidecar container
   - name: kpi-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagekpiimage.repository }}:{{ .Values.imagekpiimage.tag }}" 
-    #hostNetwork: true 
+    image: kpi-image:latest 
+    hostNetwork: true 
     ports:
     - containerPort: 4502
     env:
@@ -120,11 +120,11 @@ spec:
       value: "true"
     - name: {{ .Values.env.name }}
       value:  '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
-  
+
   - name: asset-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imageassetimage.repository }}:{{ .Values.imageassetimage.tag }}"
-    #hostNetwork: true 
+    image: asset-image:latest
+    hostNetwork: true 
     ports:
     - containerPort: 4504
     env:
@@ -148,8 +148,8 @@ spec:
       
   - name: data-service
     imagePullPolicy: IfNotPresent
-    image:  "{{ .Values.imagedataimage.repository }}:{{ .Values.imagedataimage.tag }}"
-    #hostNetwork: true 
+    image: data-image:latest
+    hostNetwork: true 
     
     ports:
     - containerPort: 4505
@@ -175,8 +175,8 @@ spec:
   
   - name: dashboard-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagedashboardimage.repository }}:{{ .Values.imagedashboardimage.tag }}"  
-    #hostNetwork: true 
+    image: dashboard-image:latest  
+    hostNetwork: true 
     ports:
     - containerPort: 4506
     env:
@@ -200,8 +200,8 @@ spec:
 
   - name: usermanager-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imageusermanagerimage.repository }}:{{ .Values.imageusermanagerimage.tag }}"
-    #hostNetwork: true 
+    image: usermanager-image:latest  
+    hostNetwork: true 
     ports:
     - containerPort: 4507
     env:
@@ -222,11 +222,11 @@ spec:
       value: "true"
     - name: {{ .Values.env.name }}
       value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
-
+  
   - name: billing-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagebillingimage.repository }}:{{ .Values.imagebillingimage.tag }}"  
-    #hostNetwork: true 
+    image: billing-image:latest  
+    hostNetwork: true 
     ports:
     - containerPort: 4508
     env:
@@ -250,8 +250,8 @@ spec:
 
   - name: time-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagetimeimage.repository }}:{{ .Values.imagetimeimage.tag }}"  
-    #hostNetwork: true 
+    image: time-image:latest  
+    hostNetwork: true 
     ports:
     - containerPort: 4509
     env:
@@ -275,8 +275,8 @@ spec:
       
   - name: test-service
     imagePullPolicy: IfNotPresent
-    image:  "{{ .Values.imagetestimage.repository }}:{{ .Values.imagetestimage.tag }}"
-    #hostNetwork: true 
+    image: test-image:latest  
+    hostNetwork: true 
     ports:
     - containerPort: 45011
     env:
@@ -300,7 +300,7 @@ spec:
 
   - name: frontend-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagefrontendimage.repository }}:{{ .Values.imagefrontendimage.tag }}" 
+    image: frontend-image:latest  
     #hostNetwork: true 
     ports:
     - containerPort: 4201
@@ -324,12 +324,86 @@ spec:
     - name: {{ .Values.env.name }}
       value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
 
+  - name: dbinit-service
+    imagePullPolicy: IfNotPresent
+    image: dbinitapi-image:latest  
+    hostNetwork: true 
+    ports:
+    - containerPort: 1337
+      hostPort: 1337
+    env:
   
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"   
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+
+  - name: publisher-service
+    imagePullPolicy: IfNotPresent
+    image: demo_publisher:latest  
+    hostNetwork: true 
+    ports:
+    - containerPort: 3500
+    env:
+    
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"    
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
+
+  - name: subscriber-service
+    imagePullPolicy: IfNotPresent
+    image: demo_subscriber:latest  
+    hostNetwork: true 
+    ports:
+    - containerPort: 3000
+    env:
+    
+    - name: "no_proxy"
+      value: "localhost;127.0.0.1"
+    - name: "DBSERVICETYPE"
+      value: "postgres"
+    - name: "DBSERVICE"
+      value: "WinCCCloudDatabaseEx"  
+    - name: "DBSERVICE2TYPE"
+      value: "postgres"
+    - name: "DBSERVICE2"
+      value: "EdgeDb"  
+    - name: "EXTENDED_ERRORS"
+      value: "true"
+    - name: "LOG_DEBUG_INFO"
+      value: "true"
+    - name: {{ .Values.env.name }}
+      value: '{"postgres":[{"name":"WinCCCloudDatabaseEx","credentials":{"name":"postgres","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}},{"name":"EdgeDb","credentials":{"name":"edgedb","host":"localhost","port":"5432","username":"postgres","password":"Siemens123"}}]}'
   
   - name: mqtt-service
     imagePullPolicy: IfNotPresent
-    image: : "{{ .Values.imagemqtt.repository }}:{{ .Values.imagemqtt.tag }}" 
-    #hostNetwork: true 
+    image: siemens/sim-edge-app-mosquitto-broker:0.1.4.6.65 
+    hostNetwork: true 
     ports:
     - containerPort: 1883
       name: https
@@ -343,12 +417,13 @@ spec:
       mountPath: /home/mosquitto/data
       {{- end }}
       resources:
-{{ toYaml .Values.resources | indent 12 }}   
-
-  - name: dbconfigui-service
-    imagePullPolicy: IfNotPresent
-    image: "{{ .Values.imagedbconfigui.repository }}:{{ .Values.imagedbconfigui.tag }}" 
-    #hostNetwork: true 
-    ports:
-    - containerPort: 7777
-      #hostPort: 7777
+{{ toYaml .Values.resources | indent 12 }}
+  
+  
+  
+ # - name: dbconfigui-service
+ #   image: dbconfig-ui:latest
+ #   hostNetwork: true 
+ #   ports:
+ #   - containerPort: 7777
+   
