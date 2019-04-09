@@ -421,7 +421,7 @@ spec:
   
   - name: dbconfigui-service
     imagePullPolicy: IfNotPresent
-    image: "{{ .Values.dbconfigui.repository }}:{{ .Values.dbconfigui.tag }}" 
+    image: "{{ .Values.imagedbconfigui.repository }}:{{ .Values.imagedbconfigui.tag }}" 
     #hostNetwork: true 
     ports:
     - containerPort: 7777
