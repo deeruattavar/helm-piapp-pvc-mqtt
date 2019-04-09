@@ -72,7 +72,7 @@ spec:
     
   - name: tokenizer-service
     imagePullPolicy: IfNotPresent
-    image: {{ .Values.image_tokenizerimage.repository }}:{{ .Values.imagetokenizer_image.tag }}
+    image: {{ .Values.imagetokenizerimage.repository }}:{{ .Values.imagetokenizer_image.tag }}
     #hostNetwork: true 
     ports:
     - containerPort: 4504
