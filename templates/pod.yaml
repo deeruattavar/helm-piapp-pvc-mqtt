@@ -53,7 +53,7 @@ spec:
   # Main application container
   - name: database-service
     imagePullPolicy: IfNotPresent
-    image: postgres # alpine is a simple Linux OS image
+    image: "{{ .Values.imagepostgres.repository }}:{{ .Values.imagepostgres.tag }}"
     hostNetwork: true 
     env:
     - name: "POSTGRES_DB"
@@ -72,7 +72,7 @@ spec:
     
   - name: tokenizer-service
     imagePullPolicy: IfNotPresent
-    image: tokenizer_image:latest
+    image: "{{ .Values.imagetokenizerimage.repository }}:{{ .Values.imagetokenizerimage.tag }}"
     hostNetwork: true 
     ports:
     - containerPort: 4504
@@ -99,7 +99,7 @@ spec:
   # Sidecar container
   - name: kpi-service
     imagePullPolicy: IfNotPresent
-    image: kpi-image:latest 
+    image: "{{ .Values.imagekpiimage.repository }}:{{ .Values.imagekpiimage.tag }}" 
     hostNetwork: true 
     ports:
     - containerPort: 4502
@@ -123,7 +123,7 @@ spec:
 
   - name: asset-service
     imagePullPolicy: IfNotPresent
-    image: asset-image:latest
+    image: "{{ .Values.imageassetimage.repository }}:{{ .Values.imageassetimage.tag }}"
     hostNetwork: true 
     ports:
     - containerPort: 4504
@@ -148,7 +148,7 @@ spec:
       
   - name: data-service
     imagePullPolicy: IfNotPresent
-    image: data-image:latest
+    image: "{{ .Values.imagedataimage.repository }}:{{ .Values.imagedataimage.tag }}"
     hostNetwork: true 
     
     ports:
@@ -175,7 +175,7 @@ spec:
   
   - name: dashboard-service
     imagePullPolicy: IfNotPresent
-    image: dashboard-image:latest  
+    image: "{{ .Values.imagedashboardimage.repository }}:{{ .Values.imagedashboardimage.tag }}"    
     hostNetwork: true 
     ports:
     - containerPort: 4506
@@ -200,7 +200,7 @@ spec:
 
   - name: usermanager-service
     imagePullPolicy: IfNotPresent
-    image: usermanager-image:latest  
+    image: "{{ .Values.imageusermanagerimage.repository }}:{{ .Values.imageusermanagerimage.tag }}" 
     hostNetwork: true 
     ports:
     - containerPort: 4507
@@ -225,7 +225,7 @@ spec:
   
   - name: billing-service
     imagePullPolicy: IfNotPresent
-    image: billing-image:latest  
+    image: "{{ .Values.imagebillingimage.repository }}:{{ .Values.imagebillingimage.tag }}"    
     hostNetwork: true 
     ports:
     - containerPort: 4508
@@ -250,7 +250,7 @@ spec:
 
   - name: time-service
     imagePullPolicy: IfNotPresent
-    image: time-image:latest  
+    image: "{{ .Values.imagetimeimage.repository }}:{{ .Values.imagetimeimage.tag }}"  
     hostNetwork: true 
     ports:
     - containerPort: 4509
@@ -275,7 +275,7 @@ spec:
       
   - name: test-service
     imagePullPolicy: IfNotPresent
-    image: test-image:latest  
+    image: "{{ .Values.imagetestimage.repository }}:{{ .Values.imagetestimage.tag }}"  
     hostNetwork: true 
     ports:
     - containerPort: 45011
@@ -300,7 +300,7 @@ spec:
 
   - name: frontend-service
     imagePullPolicy: IfNotPresent
-    image: frontend-image:latest  
+    image: "{{ .Values.imagefrontendimage.repository }}:{{ .Values.imagefrontendimage.tag }}"  
     #hostNetwork: true 
     ports:
     - containerPort: 4201
@@ -326,7 +326,7 @@ spec:
 
   - name: dbinit-service
     imagePullPolicy: IfNotPresent
-    image: dbinitapi-image:latest  
+    image: "{{ .Values.imagedbinitapiimage.repository }}:{{ .Values.imagedbinitapiimage.tag }}"  
     hostNetwork: true 
     ports:
     - containerPort: 1337
@@ -352,7 +352,7 @@ spec:
 
   - name: publisher-service
     imagePullPolicy: IfNotPresent
-    image: demo_publisher:latest  
+    image: "{{ .Values.imagedemopublisher.repository }}:{{ .Values.imagedemopublisher.tag }}"  
     hostNetwork: true 
     ports:
     - containerPort: 3500
@@ -377,7 +377,7 @@ spec:
 
   - name: subscriber-service
     imagePullPolicy: IfNotPresent
-    image: demo_subscriber:latest  
+    image:  "{{ .Values.imagedemosubscriber.repository }}:{{ .Values.imagedemosubscriber.tag }}"  
     hostNetwork: true 
     ports:
     - containerPort: 3000
@@ -402,7 +402,7 @@ spec:
   
   - name: mqtt-service
     imagePullPolicy: IfNotPresent
-    image: siemens/sim-edge-app-mosquitto-broker:0.1.4.6.65 
+    image: "{{ .Values.imagemqtt.repository }}:{{ .Values.imagemqtt.tag }}" 
     hostNetwork: true 
     ports:
     - containerPort: 1883
@@ -422,7 +422,7 @@ spec:
   
   
   - name: dbconfigui-service
-    image: dbconfig-ui:latest
+    image: "{{ .Values.imagedbconfigui.repository }}:{{ .Values.imagedbconfigui.tag }}"
     hostNetwork: true 
     ports:
     - containerPort: 7777
