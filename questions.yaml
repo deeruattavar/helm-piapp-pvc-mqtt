@@ -7,6 +7,23 @@ questions:
   required: true
   type: string
   group: "Replica Set"
+  
+- variable: persistence.folder.db
+  label: Edge Box Name for Database
+  description: "Name of the Edge Box"
+  default: '/home/edge/mqtt-auth/postgres/data'
+  required: true
+  type: string
+  group: "Siemens DB Configurations"
+  
+- variable: persistence.folder.mqtt
+  label: Edge Box Name for MQTT
+  description: "Name of the Edge Box"
+  default: '/home/edge/mqtt-auth/postgres/data'
+  required: true
+  type: string
+  group: "Siemens DB Configurations"
+
 
 - variable: "container_name"
   label: Container Name
