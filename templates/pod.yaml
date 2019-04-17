@@ -23,11 +23,11 @@ spec:
   volumes:
   - name: database-volume 
     hostPath:
-       path: "/home/deeraj/mqtt-auth/postgres1/data"
+       path: {{ .Values.persistence.folder.db }}
        type: DirectoryOrCreate
   - name: myvolume 
     hostPath:
-       path: "/home/deeraj/mqtt-auth/db"
+       path: {{ .Values.persistence.folder.mqtt }}
        type: DirectoryOrCreate
 {{ end }}
     {{- if .Values.customResources.enablespecificdownload }}
