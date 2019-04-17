@@ -19,7 +19,7 @@ questions:
 - variable: persistence.folder.mqtt
   label: Edge Box Name for MQTT
   description: "Name of the Edge Box"
-  default: '/home/edge/mqtt-auth/postgres/data'
+  default: '/home/edge/mqtt-auth/db'
   required: true
   type: string
   group: "Siemens DB Configurations"
